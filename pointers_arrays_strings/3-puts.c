@@ -1,13 +1,14 @@
+#include <unistd.h>
 #include "main.h"
 
 /**
- * _puts - prints a string without all the backend stuff like printf
- * @str: string
+ * _putchar - writes a char to stdout
+ * @c: character to print
  *
- * Return: void
+ * Return: 1 on success, -1 on error
  */
 
-void _puts(char *str)
+int _putchar(char c)
 {
-	_puts(str);
+	return write(1, &c, 1);
 }
