@@ -3,9 +3,11 @@
 /**
  * _strncat - concatenates two strings with a max num of chars to append (n)
  *
+ * @dest: destination
+ * @src: source
+ * @n: maximum character to append
  *
- *
- *
+ * Return: dest
  */
 
 char *_strncat(char *dest, char *src, int n)
