@@ -2,11 +2,13 @@
 #include <stdlib.h>
 
 /**
+ * *string_nconcat - concatentates two strings
  *
+ * @s1: pointer 1
+ * @s2: pointer 2
+ * @n: unsinged int
  *
- *
- *
- *
+ * Return: ptr to s1, n bytes of s2
  */
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
