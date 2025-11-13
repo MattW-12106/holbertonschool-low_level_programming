@@ -1,24 +1,19 @@
 #include "3-calc.h"
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 /**
- * struct_op - operator struct
+ * get_op_func - getting operator
  *
- * @op: operator
- * @f: function
+ * @s: operator
  *
- * Return: struct
+ * Return: NULL
  */
-
-typedef struct op_s
-{
-	char *op;
-	int (*f)(int, int)
-} op_t;
 
 int (*get_op_func(char *s))(int, int)
 {
+
 op_t ops[] = {
 	{"+", op_add},
 	{"-", op_sub},
@@ -29,9 +24,9 @@ op_t ops[] = {
 };
 	int i = 0;
 
-	while (ops[i].op != NULL
+	while (ops[i].op != NULL)
 	{
-		if ((strcmp(s, ops[i].op) == 0)
+		if (strcmp(s, ops[i].op) == 0)
 		{
 			return (ops[i].f);
 		}
