@@ -1,3 +1,7 @@
+#ifndef ERR_FD
+#define ERR_FD STDERR_FILENO
+#endif
+
 #include "main.h"
 
 /**
@@ -15,7 +19,7 @@ int main (int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		dprintf(2, "Usage: cp file_from file_to\n");
+		dprintf(ERR_FD, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 
@@ -23,7 +27,7 @@ int main (int argc, char *argv[])
 
 	if (fdfrom == -1)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
+		dprintf(ERR_FD, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 
@@ -31,7 +35,7 @@ int main (int argc, char *argv[])
 
 	if (fdto == -1)
 	{
-		dprintf(2, "Error: Can't write to %s\n", argv[2]);
+		dprintf(ERR_FD, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
 
@@ -41,7 +45,7 @@ int main (int argc, char *argv[])
 
 		if (byteswrite == -1)
 		{
-			dprintf(2, "Error: Can't write to %s\n", argv[2]);
+			dprintf(ERR_FD, "Error: Can't write to %s\n", argv[2]);
 			close(fdto);
 			close(fdfrom);
 			exit(99);
@@ -50,7 +54,7 @@ int main (int argc, char *argv[])
 
 	if (bytesread == -1)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
+		dprintf(ERR_FD, "Error: Can't read from file %s\n", argv[1]);
 		close(fdto);
 		close(fdfrom);
 		exit(98);
@@ -58,13 +62,13 @@ int main (int argc, char *argv[])
 
 	if (close(fdto) == -1)
 	{
-		dprintf(2, "Error: Can't close fd %d\n", fdto);
+		dprintf(ERR_FD, "Error: Can't close fd %d\n", fdto);
 		exit(100);
 	}
 
 	if (close(fdfrom) == -1)
 	{
-		dprintf(2, "Error: Can't close fd %d\n", fdfrom);
+		dprintf(ERR_FD, "Error: Can't close fd %d\n", fdfrom);
 		exit(100);
 	}
 
