@@ -10,15 +10,14 @@ hash_table_t *hash_table_create(unsigned long int size)
 {
 	hash_table_t *create_table = NULL; /* will store new hash table */
 
-	create_table = malloc(sizeof(hash_table_t)); /* allocating memory for new hash table */
+	create_table = malloc(sizeof(hash_table_t)); /* allocating for new hash table */
 
 	if (create_table == NULL) /* if allocation fails */
 	{
 		return (NULL);
 	}
-
 	create_table->size = size; /* sets the size */
-	create_table->array = malloc(sizeof(void *) * size); /* allocates memory for the array */
+	create_table->array = malloc(sizeof(void *) * size); /* allocates for the array */
 
 	if (create_table->array == NULL) /* if allocating the array fails */
 	{
